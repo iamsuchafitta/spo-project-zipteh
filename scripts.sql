@@ -1,6 +1,7 @@
 insert into brands (name) VALUES ('klsjdalksd');
 
 select * from brands;
+select * from brands;
 
 update brands
 set name='cgr'
