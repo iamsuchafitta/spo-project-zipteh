@@ -1,0 +1,26 @@
+version: "3"
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    restart: always
+    environment:
+      POSTGRES_USER: acer
+      POSTGRES_PASSWORD: 202021
+      POSTGRES_DB: zipteh_db
+    volumes:
+      - ./db/data:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"
+
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: bestuser@mail.ru
+      PGADMIN_DEFAULT_PASSWORD: 202021
+      PGADMIN_CONFIG_SERVER_MODE: "False"
+    volumes:
+      - ./db/pgadmin:/var/lib/pgadmin
+    ports:
+      - "5050:80"
+    restart: unless-stopped
